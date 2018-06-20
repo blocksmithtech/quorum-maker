@@ -204,8 +204,8 @@ function initNodes(){
 }
 
 function main(){    
-    getInputWithDefault 'Please enter a project name' "TestNetwork" projectName $RED
-    getInputWithDefault 'Please enter number of nodes to be created' 3 nodeCount $GREEN
+    projectName="test-network"
+    nodeCount=3
         
     echo -e $BLUE'Creating '$projectName' with '$nodeCount' nodes. Please wait... '$COLOR_END
 
@@ -227,6 +227,8 @@ function main(){
     generateGenesis
 
     initNodes
+
+    cp lib/dev/Makefile $projectName/Makefile
 
     echo -e $GREEN'Project '$projectName' created successfully. Please execute docker-compose up from '$projectName' directory'$COLOR_END
 }
